@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "Nombre":"Nombre cliente 1",
+        "Telefono": 3058268888,
+        "descripcion":"esta es la descripcion"
+    },
+    {
+        "id":2,
+        "Nombre":"Nombre cliente 2",
+        "Telefono": 3058268888,
+        "descripcion":"esta es la descripcion 2"
+    },
+    {
+        "id":3,
+        "Nombre":"Nombre cliente 3",
+        "Telefono": 3058268888,
+        "descripcion":"esta es la descripcion 3"
+    }
+]
