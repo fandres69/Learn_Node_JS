@@ -3,7 +3,20 @@
  * y se crea un servidor.
  * 
  * Para ver la peticion realizada (ruta) se usa req.url
+ * 
+ * Agregar Dependencias
+ *  npm install nodemon --save-dev
+ *  npm install nodemon --global
+ *  npm install slugify
+ *  npm install bootstrap
+ * 
+ * Crear archivo de paquete
+ * 
+ * npm init (Se siguen las instrucciones)
  */
+
+
+
 
 const http= require('http');
 const fs= require('fs');
