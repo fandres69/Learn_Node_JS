@@ -1,0 +1,26 @@
+{
+  "name": "learn_node_js",
+  "version": "1.0.0",
+  "description": "Proyecto de aprendizaje Node js",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta1",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fandres69/Learn_Node_JS.git"
+  },
+  "author": "Fabio Andres Tobon Quesada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fandres69/Learn_Node_JS/issues"
+  },
+  "homepage": "https://github.com/fandres69/Learn_Node_JS#readme"
+}

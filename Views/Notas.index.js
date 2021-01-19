@@ -8,10 +8,6 @@
 const http= require('http');
 const fs= require('fs');
 const url= require('url');
-//llamados a modulos propio
-const Rept=require('./Modules/Module');
-const slugify= require('slugify');
-
 
 /**Lee la plantilla html Home */
 const VHome= fs.readFileSync(`${__dirname}/Views/Home.html`,'utf-8');
@@ -22,18 +18,16 @@ const vFOOT= fs.readFileSync(`${__dirname}/Views/Foot.html`,'utf-8');
 /**Lee los datos del archivo json data */
 const data = fs.readFileSync(`${__dirname}/Data/data.json`,'utf-8');
 
-console.log(slugify('Prueba de cadena',{lower:true})); 
-
 const dataOjb=JSON.parse(data);
 
 /**Remplaza las llaves del archivo Clientes {%llave%} */
-// const Remplacetemp=(temp,remp)=>{
-//     let outp= temp.replace(/{%ID%}/g,remp.id);
-//     outp = outp.replace(/{%NOMBRE%}/g,remp.Nombre);
-//     outp = outp.replace(/{%TELEFONO%}/g,remp.Telefono);
-//     //console.log(outp);
-//     return outp;
-// };
+const Remplacetemp=(temp,remp)=>{
+    let outp= temp.replace(/{%ID%}/g,remp.id);
+    outp = outp.replace(/{%NOMBRE%}/g,remp.Nombre);
+    outp = outp.replace(/{%TELEFONO%}/g,remp.Telefono);
+    //console.log(outp);
+    return outp;
+};
 
 /**Remplaza regiones especificas dentro de la pagina Home*/
 const VfinalHOme=(temp,remp,foo)=>{
@@ -45,7 +39,7 @@ return outp;
 //Cuendo se utilizan datos provenientes de archivos json se debe incluir la opción join(''), a fin de que no
 //se usen las , como separador de los datos y no sean mostrados en el html que se responde
 
-const Vfinal= dataOjb.map(x=> Rept(VCliente,x)).join('');
+const Vfinal= dataOjb.map(x=> Remplacetemp(VCliente,x)).join('');
 
 const Vfinalview=VfinalHOme(VHome,Vfinal,vFOOT);
 

@@ -2,19 +2,16 @@
     {
         "id":1,
         "Nombre":"Nombre cliente 1",
-        "Telefono": 3058268888,
-        "descripcion":"esta es la descripcion"
+        "Telefono": 3058268881
     },
     {
         "id":2,
         "Nombre":"Nombre cliente 2",
-        "Telefono": 3058268888,
-        "descripcion":"esta es la descripcion 2"
+        "Telefono": 3058268882
     },
     {
         "id":3,
         "Nombre":"Nombre cliente 3",
-        "Telefono": 3058268888,
-        "descripcion":"esta es la descripcion 3"
+        "Telefono": 3058268883
     }
 ]
