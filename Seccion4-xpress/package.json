@@ -1,0 +1,14 @@
+{
+  "name": "xpress-learn",
+  "version": "1.0.0",
+  "description": "Pratica xpress framework para aprendizaje",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio Andres Tobon Quesada",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
