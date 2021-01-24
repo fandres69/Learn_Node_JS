@@ -12,6 +12,24 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Events",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\HWNode\\modules.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Seccion3",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\Seccion3\\index.js"
         }
     ]
 }
