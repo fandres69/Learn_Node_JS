@@ -30,6 +30,15 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\Seccion3\\index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Seccion4",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\Seccion4-xpress\\app3.js"
         }
     ]
 }
