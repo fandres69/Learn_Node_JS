@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bootstrap": "^5.0.0-beta1",
+    "mongoose": "^5.11.13",
     "slugify": "^1.4.6"
   },
   "devDependencies": {

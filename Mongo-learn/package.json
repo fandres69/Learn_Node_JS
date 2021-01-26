@@ -1,0 +1,23 @@
+{
+  "name": "mongo-learn",
+  "version": "1.0.0",
+  "description": "Aplicacion Web con MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start:dev": "nodemon server.js",
+    "start:prod": "set NODE_ENV=production && set PORT_ENV=8080 && nodemon server.js"
+  },
+  "author": "Fabio Andres Tobon Quesada",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13",
+    "morgan": "^1.10.0",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
