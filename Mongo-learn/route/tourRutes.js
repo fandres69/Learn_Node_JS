@@ -1,14 +1,15 @@
 const express = require('express');
-console.log(`${__dirname}`);
 const tourController=require('../controllers/tourController');
+
 const router= express.Router(); 
 
-
-router.param('id',tourController.checkTourId);
+router.route('/top-5-cheap').get(tourController.aliasTopTours,tourController.getAllTours);
+//Esta linea llama una validación de parámetros a través de un middleware
+//router.param('id',tourController.checkTourId); 
 router
 .route('/')
 .get(tourController.getAllTours)
-.post(tourController.checkBody,tourController.CreateTour);
+.post(tourController.CreateTour);
 
 router
 .route('/:id')

@@ -1,4 +1,4 @@
-const fs = require('fs');
+//const fs = require('fs');
 const express= require('express');
 const morgan= require('morgan');
 const tourRouter= require('./route/tourRutes')
@@ -10,7 +10,7 @@ const userRouter= require('./route/usersRutes')
 
  //Uso funciones middleware, que se ejecutan en los llamados de route
  
- //Esta linea se usa para parcear una solicitud que contiene datos en formato json
+ //Esta linea se usa para para crear una solicitud que contiene datos en formato json
  app.use(express.json());
 
  app.use(express.static('./public'))
@@ -23,15 +23,15 @@ const userRouter= require('./route/usersRutes')
     app.use(morgan('dev'));
  }
  
- app.use((req,res,next) => {
-     console.log("Hello from middleware");
-     next();
- });
+//  app.use((req,res,next) => {
+//      console.log("Hello from middleware");
+//      next();
+//  });
 
- app.use((req,res,next) => {
-     req.requestTime = new Date().toString();    
-    next();
-});
+//  app.use((req,res,next) => {
+//      req.requestTime = new Date().toString();    
+//     next();
+// });
 app.use('/api/v1/tours',tourRouter);
 app.use('/api/v1/users',userRouter);
 
