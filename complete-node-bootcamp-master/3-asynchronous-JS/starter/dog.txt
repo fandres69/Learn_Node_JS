@@ -1,0 +1,80 @@
+/**Uso de promesas en Node js */
+
+const fs=require('fs');
+const superagent=require('superagent');
+
+//Forma 3
+const readFilePro =file=>{
+    return new Promise((resolve,reject)=>{
+        fs.readFile(file,(err,data)=>{
+            if(err) reject('No se encuentra el archivo');
+            resolve(data);
+        });
+    });
+}
+
+const WriteFilePro=(file, data) =>{
+    return new Promise((resolve, reject)=>{        
+        fs.writeFile(file,data,err=>{
+            if(err) reject('No se pudo escribir el archivo');
+            resolve('success');
+        });
+    });
+};
+
+readFilePro(`${__dirname}/dog1.txt`)
+    .then(data => {
+        console.log(`Breed: ${data}`);
+        return superagent.get(`https://dog.ceo/api/breed/${data}/images/random`);
+    })
+    .then(res => {
+        console.log(res.body.message);
+        return WriteFilePro(`${__dirname}/dog-img.txt`,res.body.message);
+        // fs.writeFile(`dog-img.txt`, res.body.message, err => {
+        //     if (err) console.log(err.message, 'line 22');
+        //     console.log("Random dog Save to file");
+        // });
+    })
+    .then(()=>{
+        console.log('Random dog image save to file');
+    })
+    .catch(err => {
+        console.log(err.message);
+    });
+
+
+/**En este fragmento se consume un api donde retorna la url de la imagen de un
+ * perro, cuyo nombre esta escrito en el archivo dog.txt, y el valor retornado 
+ * es almacenado en el archivo dog-img.txt
+ */
+// fs.readFile(`${__dirname}/dog.txt`,(err,data)=>{
+//     //console.log(`Breed: ${data}`);
+
+//     //Forma 1
+//     // superagent.get(`https://dog.ceo/api/breed/${data}/images/random`)
+//     // .end((err ,res) =>{
+//     //     if(err) console.log(err.message);
+//     //     console.log(res.body);
+
+//     //     fs.writeFile("dog-img.txt",res.body.message,err =>{
+//     //         if(err) console.log(err.message);
+//     //         console.log("Random dog Save to file");
+//     //     });
+//     // });
+//     //Forma 2 se espera a que el proceso termine
+//     // superagent.get(`https://dog.ceo/api/breed/${data}/images/random`)
+//     // .then(res =>{
+//     //     if(err) console.log(err.message);
+//     //     console.log(res.body);
+
+//     //     fs.writeFile("dog-img.txt",res.body.message,err =>{
+//     //         if(err) console.log(err.message);
+//     //         console.log("Random dog Save to file");
+//     //     });
+//     // }).catch(err=>{
+//     //     console.log(err.message);
+//     // });
+    
+
+// });
+ 

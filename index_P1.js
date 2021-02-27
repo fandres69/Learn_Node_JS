@@ -20,6 +20,64 @@
  * 3. Image preview
  * 4. TabNine
  * 5. TODO Highlight
+ * 
+ * **************************************************************************************
+ * Se pueden usar imitadores de request usando la biblioteca express-rate-limit asi:
+ * install
+ * npm i express-rate-limit
+ * 
+ * Para instanciarla se hereda a traves de require ejemplo:
+ * const rateLimit = require('express-rate-limit');
+ * 
+ * se puede configurar asi:
+ * 
+ * const limiter= rateLimit({
+ * max:100, //numero de peticiones
+ * windowMs: 60 * 60* 1000, //tiempo para peticiones es decir 100 / hora
+ * message: 'intentalo de nuevo dentro de una hora' //mensaje enviado al terminar la cantidad de peticiones por hora
+ * })
+ * 
+ * *****************************************************************************************
+ *Para implementar un cookie desde una funciones
+ *
+ *  const createSendToken= (usr,statusCode,res)=>{
+ *    const token=singnToken(user._id); // se crea el token de usuario (jwt) a partir de una funcion que realiza la creacion de token
+ *    res.status(statusCode).json({
+ *    
+ *      //Se crean las opciones del cookie
+ *      const cookieOptions={
+ *          expires: new Date(
+ *          Date.now()+ process.env.Cookie_expire * 24*60*60*100 ), //El tiempo se configura solo numero de dias paras este ejemplo
+ *          httpOnly:true,
+ *          secure : true // se debe activar solo en producción
+ *      };
+ *    // Se crea el cookie y se responde al usuario
+ *      res.cookie('nombreCookie',token, cookieOptions);  
+ *      });
+ *    res.status(statusCode).json({
+ *      status: 'success',
+ *      token,
+ *      data: {
+ *      user     
+ *      }
+ *  });
+ *  };
+ * 
+ * ***********************************************************************************************  
+ * Para crear un token y enviárselo al usuario con jwt
+ * 
+ *  Se instancia asi: const jwt= require('jsonwebtoken');
+ *  
+ * se crea el token con esta función:
+ * 
+ *  const token=jwt.sign({id: user.id}, 'secretKey',{
+ *  expiresIn: tiempo_configurado //ejemplo 90d
+ *  });
+ * 
+ * se puede validar asi:
+ * 
+ *  jwt.verify(token,'secretKey');
+ * 
  */
 
 const http= require('http');
